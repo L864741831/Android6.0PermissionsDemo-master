@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="choicemmed.com.android60permissionsdemo">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 注意：这是自动生成的，为您的项目添加谷歌播放服务。
+应用程序索引。有关更多信息，请参见HTTPS://G.CO/AppDyjung/ANDROIDStudio。 -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.zz.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!--
+        android:name="android.support.v4.content.FileProvider"的写法是固定的，
+        不过如果你打算作为lib提供给别人可能要考虑冲突，可以继承这个类，然后不实现，以作区分。
+
+当局
+        设置android:authorities
+的属性为packange_name.fileprovider
+
+ android:exported="false">//不需要暴露给外部，设置为false即可
+
+ android:grantUriPermissions="true"//设置为true，才可授予临时权限
+
+
+
+ android:resource="@xml/filepaths"/>//共享的文件目录配置，下一小结具体介绍
+
+
+        -->
+
+    </application>
+
+
+</manifest>
